@@ -1,0 +1,80 @@
+#canvas {
+  width: 500px;
+  height: 910px;
+  position:absolute;
+  pointer-events: none;
+}
+
+.circle {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+}
+
+.building{
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  border: solid rgb(152, 174, 195);
+  background-color: azure;
+}
+
+.floor {
+  height: 130px;
+  border-bottom: solid rgb(152, 174, 195);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.floor-buttons {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(186, 186, 186);
+  width: 35px;
+  height: 75px;
+  align-items:center;
+  border: solid rgb(167, 165, 165);
+}
+
+.floor-buttons * {
+  margin-top: 5px;
+  background-size:cover;
+  background-position: center;
+  border-color: rgb(255, 255, 255);
+  transition: border-color 0.5s ease-in-out;
+  border-width: 3px;
+  outline: none;
+  cursor: pointer;
+}
+
+.floor-text {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: rgb(236, 161, 31);
+  padding-bottom: 5px;
+}
+.up-button {
+  background-image: url("images/up-button.png");
+}
+
+.down-button {  
+  background-image: url("images/down-button.png");
+}
+
+.elevators * {
+  display: none;
+}
+
+.arrows {
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+}
+
+.dir-arrow {
+  position: absolute;
+  top: 3%;
+  left: 17%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+}
+
