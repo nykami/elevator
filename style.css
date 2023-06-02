@@ -1,80 +1,150 @@
-#canvas {
-  width: 500px;
-  height: 910px;
-  position:absolute;
-  pointer-events: none;
+* {
+  margin: 0;
+    border: 0;
+    box-sizing: border-box;
 }
 
-.circle {
-  border-radius: 50%;
-  height: 30px;
-  width: 30px;
+body {
+  background-image: url("images/background.jpg");
+  background-repeat: round;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
-.building{
+button {
+  cursor: pointer;
+  background-size: cover;
+  transition: border-color 0.5s ease-in-out;
+  outline: none;
+}
+
+.container {
   display: flex;
+  justify-content: center;
+}
+
+.building {
+    width: 500px;
+    position: relative;
+    margin: 50px;
+    background-color: rgb(250, 235, 242);
+    text-align: center;
+    border: solid rgb(7, 7, 121);
+
+  }
+
+.lift-controls {
+  width: 400px;
+  height: 500px;
+  position: relative;
+  margin: 50px;
+  background-color: rgb(250, 235, 242);
+  text-align: center;
+  border: solid rgb(7, 7, 121);
+}
+
+.lift-buttons {
+  margin-top: 15px;
+  border: solid rgb(85, 85, 85);
+  /* background-color: rgb(202, 202, 202); */
+  background-image: url("images/metallic.jpg");
+  background-repeat: round;
+  padding: 10px;
+  display: inline-flex;
   flex-direction: column;
-  width: 500px;
-  border: solid rgb(152, 174, 195);
-  background-color: azure;
+  gap: 20px;
+}
+
+h1 {
+  border-bottom: solid rgb(7, 7, 121);
+  background-color:rgb(134, 203, 249);
+  font-family:cursive;
+  color: rgb(8, 85, 118);
 }
 
 .floor {
-  height: 130px;
-  border-bottom: solid rgb(152, 174, 195);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  border-bottom: solid 10px rgb(25, 25, 107);
+}
+
+.floor:nth-child(even) {
+  background-color: rgb(221, 241, 249);
+}
+
+.floor:nth-child(3n) {
+  background-color: #e4f9e4;
+}
+
+
+.column {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
-.floor-buttons {
+.column:nth-child(2) {
+  min-width: 30px;
+}
+
+.lift {
   display: flex;
   flex-direction: column;
-  background-color: rgb(186, 186, 186);
-  width: 35px;
-  height: 75px;
-  align-items:center;
-  border: solid rgb(167, 165, 165);
+  align-items: center;
+  gap: 10px;
 }
 
-.floor-buttons * {
-  margin-top: 5px;
-  background-size:cover;
-  background-position: center;
-  border-color: rgb(255, 255, 255);
-  transition: border-color 0.5s ease-in-out;
-  border-width: 3px;
-  outline: none;
-  cursor: pointer;
+.circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  border: solid rgb(167, 167, 167);
 }
 
-.floor-text {
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: rgb(236, 161, 31);
-  padding-bottom: 5px;
-}
-.up-button {
-  background-image: url("images/up-button.png");
-}
+.lift-floor-button {
+  width: 40px;
+  height: 40px;
+  font-size: x-large;
 
-.down-button {  
-  background-image: url("images/down-button.png");
-}
-
-.elevators * {
-  display: none;
-}
-
-.arrows {
-  display: flex;
-  grid-template-columns: 1fr 1fr;
 }
 
 .dir-arrow {
-  position: absolute;
-  top: 3%;
-  left: 17%;
-  transform: translate(-50%, -50%);
-  background-color: black;
+  margin-top: 10px;
 }
 
+.floor-buttons {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content:space-around;
+  border: solid rgb(125, 125, 125);
+  background-image: url("images/metallic.jpg");
+  background-repeat: round;
+  
+  border-radius: 20%;
+  height: 80px;
+  width: 40px;
+}
+
+.floor-buttons * {
+  width: 30px;
+  height: 30px;
+}
+
+.up-button {
+  background-image: url('/images/up-button.png');
+}
+
+.down-button {
+  background-image: url('/images/down-button.png');
+}
+
+.elevator {
+  width: 100px;
+  height: 150px;
+}
+
+.description {
+  font-size: 1.5em;
+  margin-top: 3em;
+}
