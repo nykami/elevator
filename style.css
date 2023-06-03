@@ -64,7 +64,6 @@ h1 {
 .floor {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
   border-bottom: solid 10px rgb(25, 25, 107);
 }
 
