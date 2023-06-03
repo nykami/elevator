@@ -29,7 +29,6 @@ button {
     background-color: rgb(250, 235, 242);
     text-align: center;
     border: solid rgb(7, 7, 121);
-
   }
 
 .lift-controls {
@@ -45,7 +44,6 @@ button {
 .lift-buttons {
   margin-top: 15px;
   border: solid rgb(85, 85, 85);
-  /* background-color: rgb(202, 202, 202); */
   background-image: url("images/metallic.jpg");
   background-repeat: round;
   padding: 10px;
@@ -74,7 +72,6 @@ h1 {
 .floor:nth-child(3n) {
   background-color: #e4f9e4;
 }
-
 
 .column {
   display: flex;
@@ -124,7 +121,6 @@ h1 {
   border: solid rgb(125, 125, 125);
   background-image: url("images/metallic.jpg");
   background-repeat: round;
-  
   border-radius: 20%;
   height: 80px;
   width: 40px;
