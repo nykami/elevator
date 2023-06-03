@@ -144,6 +144,28 @@ h1 {
   height: 150px;
 }
 
+.elevatorA {
+  position: relative;
+  z-index: 1;
+}
+
+.elevatorB {
+  position: relative;
+  z-index: 1;
+}
+
+#movingElevatorA {
+  position: absolute;
+  z-index: 2;
+  margin-top: 40px;
+}
+
+#movingElevatorB {
+  position: absolute;
+  z-index: 2;
+  margin-top: 40px;
+}
+
 .description {
   font-size: 1.5em;
   margin-top: 3em;
