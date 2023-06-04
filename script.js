@@ -2,6 +2,7 @@ const numOfFloors = 7;
 const floorHeight = 200;
 const floors = document.querySelectorAll('.floor');
 const segmentDisplayA = document.querySelector('#display-A')
+const segmentDisplayB = document.querySelector('#display-B')
 
 const upButtons = document.querySelectorAll('.up-button');
 const downButtons = document.querySelectorAll('.down-button');
@@ -28,6 +29,7 @@ function moveElevator(elevator, currentFloor, targetFloor, duration, distance) {
         dirA = 'up';
         targetTranslateY = -((currentFloor - 1) * floorHeight) - (distance * floorHeight);
         console.log(`Elevator A moving ${dirA} to floor ${targetFloor - 1}`);
+        //updateSevenDigitDisplay(elevatorA, distance, duration, dirA, currentFloorA);
         break;
       }
       case elevatorB: {
@@ -65,6 +67,46 @@ function moveElevator(elevator, currentFloor, targetFloor, duration, distance) {
   }
   elevator.style.transition = `transform ${duration / 1000}s ease-in-out`;
   elevator.style.transform = `translateY(${targetTranslateY}px)`;
+  switch (elevator) {
+    case elevatorA: {
+      updateSevenDigitDisplay(elevatorA, distance, duration, dirA, currentFloorA);
+      break;
+    }
+    case elevatorB: {
+      updateSevenDigitDisplay(elevatorB, distance, duration, dirB, currentFloorB);
+      break;
+    }
+  }
+}
+
+function updateSevenDigitDisplay(elevator, distance, duration, dir, currentFloor) {
+  let timeout = null;
+  let numberToBeDisplayed = currentFloor - 1;
+  console.log("Curr: ", numberToBeDisplayed);
+  for (let i = 1; i <= distance; i++) {
+    timeout = duration / i + distance * i;
+    setTimeout(() => {
+      if (dir == 'up') {
+        numberToBeDisplayed += 1;
+      }
+      else {
+        numberToBeDisplayed -= 1;
+      }
+      console.log("Curr: ", numberToBeDisplayed);
+      switch (elevator) {
+        case elevatorA:
+          {
+            segmentDisplayA.style.backgroundImage = `url("images/display/${numberToBeDisplayed.toString()}.png")`;
+            break;
+          }
+        case elevatorB:
+          {
+            segmentDisplayB.style.backgroundImage = `url("images/display/${numberToBeDisplayed.toString()}.png")`;
+            break;
+          }
+      }
+    }, timeout);
+  }
 }
 
 function updateElevatorStatus() {
@@ -94,7 +136,7 @@ function handleLiftButtonEvent(elevator, targetButton) {
   switch (elevator) {
     case (elevatorA): {
       const destination = parseInt(targetButton.innerText) + 1;
-      console.log(`Controls lift-A: ${destination - 1} was selected`);
+      console.log(`Controls lift - A: ${destination - 1} was selected`);
       const distanceA = Math.abs(destination - currentFloorA);
       if (distanceA === 0) {
         alert('Lift A is already one the selected floor');
@@ -105,7 +147,7 @@ function handleLiftButtonEvent(elevator, targetButton) {
         moveElevator(elevatorA, currentFloorA, destination, duration, distanceA, liftButtonsA);
         currentFloorA = destination;
         setTimeout(() => {
-          console.log(`Elevator A reached destination floor ${destination - 1}`);
+          console.log(`Elevator A reached destination floor ${destination - 1} `);
           ismovingA = false;
           updateElevatorStatus();
           targetButton.style.borderColor = '';
@@ -115,7 +157,7 @@ function handleLiftButtonEvent(elevator, targetButton) {
     }
     case (elevatorB): {
       const destination = parseInt(targetButton.innerText) + 1;
-      console.log(`Controls lift-B: ${destination - 1} was selected`);
+      console.log(`Controls lift - B: ${destination - 1} was selected`);
       const distanceB = Math.abs(destination - currentFloorB);
       if (distanceB === 0) {
         alert('Lift B is already one the selected floor');
@@ -126,7 +168,7 @@ function handleLiftButtonEvent(elevator, targetButton) {
         moveElevator(elevatorB, currentFloorB, destination, duration, distanceB, liftButtonsB);
         currentFloorB = destination;
         setTimeout(() => {
-          console.log(`Elevator B reached destination floor ${currentFloorB - 1}`);
+          console.log(`Elevator B reached destination floor ${currentFloorB - 1} `);
           ismovingB = false;
           updateElevatorStatus();
           targetButton.style.borderColor = '';
@@ -145,7 +187,7 @@ function moveElevatorA(distance, targetFloor, button) {
   moveElevator(elevatorA, currentFloorA, targetFloor, duration, distance);
   currentFloorA = targetFloor;
   setTimeout(() => {
-    console.log(`Elevator A reached floor ${targetFloor - 1}`);
+    console.log(`Elevator A reached floor ${targetFloor - 1} `);
     ismovingA = false;
     updateElevatorStatus();
     button.style.borderColor = '';
@@ -157,7 +199,7 @@ function moveElevatorB(distance, targetFloor, button) {
   moveElevator(elevatorB, currentFloorB, targetFloor, duration, distance);
   currentFloorB = targetFloor;
   setTimeout(() => {
-    console.log(`Elevator B reached floor ${targetFloor - 1}`);
+    console.log(`Elevator B reached floor ${targetFloor - 1} `);
     ismovingB = false;
     updateElevatorStatus();
     button.style.borderColor = '';
@@ -170,7 +212,7 @@ function handleCallButtonEvent(button, index) {
   const distanceB = Math.abs(targetFloor - currentFloorB);
 
   if (distanceA === 0 || distanceB === 0) {
-    alert(`There is already one elevator on floor ${targetFloor - 1}`);
+    alert(`There is already one elevator on floor ${targetFloor - 1} `);
   } else {
     button.style.borderColor = 'green';
     if (currentFloorA <= currentFloorB) { // case elevatorA is on lower level than elevatorB
