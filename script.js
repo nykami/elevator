@@ -1,6 +1,8 @@
 const numOfFloors = 7;
 const floorHeight = 200;
 const floors = document.querySelectorAll('.floor');
+const segmentDisplayA = document.querySelector('#display-A')
+
 const upButtons = document.querySelectorAll('.up-button');
 const downButtons = document.querySelectorAll('.down-button');
 const liftButtonsA = document.getElementById('lift-buttons-A');
@@ -190,6 +192,10 @@ function handleCallButtonEvent(button, index) {
 window.onload = () => {
   updateElevatorStatus();
 
+  let segmentss = new Array();
+  segmentDisplayA.querySelectorAll('.segment-circle').forEach((segment) => {
+    segmentss.push(segment);
+  })
   liftButtonsA.addEventListener('click', (event) => {
     const targetButton = event.target;
     handleLiftButtonEvent(elevatorA, targetButton);
