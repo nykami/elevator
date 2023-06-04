@@ -1,5 +1,5 @@
 * {
-  margin: 0;
+    margin: 0;
     border: 0;
     box-sizing: border-box;
 }
@@ -7,7 +7,8 @@
 body {
   background-image: url("images/background.jpg");
   background-repeat: round;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin: 3em;
 }
 
 button {
@@ -24,19 +25,21 @@ button {
 
 .building {
     width: 500px;
+    min-width: 300px;
     position: relative;
-    margin: 50px;
+    margin: 30px;
     background-color: rgb(250, 235, 242);
     text-align: center;
     border: solid rgb(7, 7, 121);
   }
 
 .lift-controls {  
-  width: 200px;
+  width: 300px;
   height: 600px;
   position: relative;
   margin: 30px;
-  background-color: rgb(250, 235, 242);
+  background-image: url('images/metallic-gray.jpg');
+  background-size: cover;
   text-align: center;
   border: solid rgb(7, 7, 121);
   display: flex;
@@ -46,7 +49,7 @@ button {
 
 .lift-buttons {
   max-height: 500px;
-  margin-top: 15px;
+  margin-top: 30px;
   border: solid rgb(85, 85, 85);
   background-image: url("images/metallic.jpg");
   background-repeat: round;
@@ -61,6 +64,10 @@ h1 {
   background-color:rgb(134, 203, 249);
   font-family:cursive;
   color: rgb(8, 85, 118);
+}
+
+.lift-controls-title {
+  width: 295px;
 }
 
 h3{
@@ -177,6 +184,8 @@ h3{
 .description {
   font-size: 1.5em;
   margin-top: 5em;
+  min-width: 500px;
+  padding: 3em;
 }
 
 .segment-display {
